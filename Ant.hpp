@@ -5,7 +5,7 @@
 #ifndef ANT_HPP
 #define ANT_HPP
 
-enum Direction {UP, DOWN, LEFT, RIGHT};
+enum Direction { UP, RIGHT, DOWN, LEFT};
 
 class Ant {
 private:
@@ -13,29 +13,20 @@ private:
     int yPos;
     Direction direction;
 public:
-    int getXPos() const {
-        return xPos;
-    }
+    Ant(int x, int y);
 
-    void setXPos(int xPos) {
-        Ant::xPos = xPos;
-    }
+    int getXPos() const;
 
-    int getYPos() const {
-        return yPos;
-    }
+    void setXPos(int xPos);
 
-    void setYPos(int yPos) {
-        Ant::yPos = yPos;
-    }
+    int getYPos() const;
 
-    Direction getDirection() const {
-        return direction;
-    }
+    void setYPos(int yPos);
 
-    void setDirection(Direction direction) {
-        Ant::direction = direction;
-    }
+    Direction getDirection() const;
+
+    void setDirection(Direction direction);
+
 };
 
 

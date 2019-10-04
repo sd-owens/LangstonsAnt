@@ -4,6 +4,7 @@
 #include <iostream>
 #include "Menu.hpp"
 #include "validInput.hpp"
+#include "Ant.hpp"
 
 void Menu::setup() {
 
@@ -62,7 +63,9 @@ void Menu::setup() {
             break;
         }
 
-
-
     } while (true);
+
+//    Ant* ant = new Ant(startRow, startColumn, UP)
+
+
 }
