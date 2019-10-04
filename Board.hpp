@@ -6,12 +6,23 @@
 #define BOARD_HPP
 
 
+#include "Ant.hpp"
+
 class Board {
 private:
-
+    int rows;
+    int columns;
+    Ant* ant;
+    char** gameBoard;
 public:
+    Board(int row, int col, Ant*);
+    ~Board();
+    char getColor(int column, int row);
+    int getRows();
+    int getColumns();
+    void initBoard();
     void printBoard();
-
+    void delBoard();
 };
 
 

@@ -6,19 +6,15 @@
 
 #IncludeRegexTransform: 
 
-/Users/Steve/Projects/School/LangstonsAnt/Ant.cpp
-Ant.hpp
 /Users/Steve/Projects/School/LangstonsAnt/Ant.hpp
 
-/Users/Steve/Projects/School/LangstonsAnt/Ant.hpp
-
-/Users/Steve/Projects/School/LangstonsAnt/Menu.cpp
+/Users/Steve/Projects/School/LangstonsAnt/Board.cpp
 iostream
 -
-Menu.hpp
-/Users/Steve/Projects/School/LangstonsAnt/Menu.hpp
-validInput.hpp
-/Users/Steve/Projects/School/LangstonsAnt/validInput.hpp
+Board.hpp
+/Users/Steve/Projects/School/LangstonsAnt/Board.hpp
+
+/Users/Steve/Projects/School/LangstonsAnt/Board.hpp
 Ant.hpp
 /Users/Steve/Projects/School/LangstonsAnt/Ant.hpp
 
@@ -31,6 +27,6 @@ Menu.hpp
 /Users/Steve/Projects/School/LangstonsAnt/Menu.hpp
 Ant.hpp
 /Users/Steve/Projects/School/LangstonsAnt/Ant.hpp
-
-/Users/Steve/Projects/School/LangstonsAnt/validInput.hpp
+Board.hpp
+/Users/Steve/Projects/School/LangstonsAnt/Board.hpp
 
