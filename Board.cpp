@@ -58,8 +58,12 @@ void Board::printBoard() {
 
         for(int x = 0; x < this->columns; x++){
 
-            std::cout << static_cast<char>(gameBoard[y][x]);
-            std::cout << ' ';
+            if(ant->getXPos() == x && ant->getYPos() == y) {
+                std::cout << "* ";
+            } else {
+                std::cout << static_cast<char>(gameBoard[y][x]);
+                std::cout << ' ';
+            }
         }
         std::cout << "|\n";
     }
