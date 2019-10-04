@@ -150,6 +150,33 @@ Ant.cpp.s:
 	$(MAKE) -f CMakeFiles/LangstonsAnt.dir/build.make CMakeFiles/LangstonsAnt.dir/Ant.cpp.s
 .PHONY : Ant.cpp.s
 
+AntGame.o: AntGame.cpp.o
+
+.PHONY : AntGame.o
+
+# target to build an object file
+AntGame.cpp.o:
+	$(MAKE) -f CMakeFiles/LangstonsAnt.dir/build.make CMakeFiles/LangstonsAnt.dir/AntGame.cpp.o
+.PHONY : AntGame.cpp.o
+
+AntGame.i: AntGame.cpp.i
+
+.PHONY : AntGame.i
+
+# target to preprocess a source file
+AntGame.cpp.i:
+	$(MAKE) -f CMakeFiles/LangstonsAnt.dir/build.make CMakeFiles/LangstonsAnt.dir/AntGame.cpp.i
+.PHONY : AntGame.cpp.i
+
+AntGame.s: AntGame.cpp.s
+
+.PHONY : AntGame.s
+
+# target to generate assembly for a file
+AntGame.cpp.s:
+	$(MAKE) -f CMakeFiles/LangstonsAnt.dir/build.make CMakeFiles/LangstonsAnt.dir/AntGame.cpp.s
+.PHONY : AntGame.cpp.s
+
 Board.o: Board.cpp.o
 
 .PHONY : Board.o
@@ -270,6 +297,9 @@ help:
 	@echo "... Ant.o"
 	@echo "... Ant.i"
 	@echo "... Ant.s"
+	@echo "... AntGame.o"
+	@echo "... AntGame.i"
+	@echo "... AntGame.s"
 	@echo "... Board.o"
 	@echo "... Board.i"
 	@echo "... Board.s"

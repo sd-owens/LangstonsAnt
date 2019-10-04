@@ -11,6 +11,7 @@ Board::Board(int row, int col, Ant* ant)
     for(int i = 0; i < this->rows; i++){
         gameBoard[i] = new char[this->columns];
     }
+    initBoard();
 }
 
 Board::~Board() {
@@ -21,6 +22,11 @@ Board::~Board() {
 char Board::getColor(int column, int row){
     return gameBoard[column][row];
 }
+
+void Board::setColor(int column, int row, char symbol){
+    gameBoard[column][row] = symbol;
+}
+
 int Board::getRows(){
     return this->rows;
 }
@@ -33,7 +39,7 @@ void Board::initBoard() {
 
         for (int x = 0; x < this->columns; x++) {
 
-            gameBoard[y][x] = '#';
+            gameBoard[y][x] = ' ';
         }
     }
 }
@@ -41,17 +47,24 @@ void Board::initBoard() {
 void Board::printBoard() {
 
     std::cout << "\n";
+    for(int i = 0; i <= this->columns; i++) {
+        std::cout << "--";
+    }
 
+    std::cout << "\n";
     for(int y = 0; y < this->rows; y++) {
 
-        std::cout << "{ ";
+        std::cout << "|";
 
         for(int x = 0; x < this->columns; x++){
 
             std::cout << static_cast<char>(gameBoard[y][x]);
             std::cout << ' ';
         }
-        std::cout << "}\n";
+        std::cout << "|\n";
+    }
+    for(int i = 0; i <= this->columns; i++) {
+        std::cout << "--";
     }
     std::cout << std::endl;
 }

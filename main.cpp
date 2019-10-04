@@ -8,42 +8,27 @@
 #include "Menu.hpp"
 #include "Ant.hpp"
 #include "Board.hpp"
+#include "AntGame.hpp"
 
 int main(){
 
-    std::cout << "Hello World\n";
+    Ant* ant = new Ant(0,0);
 
-    Ant* antPtr = new Ant(9, 8);
+    Board* b = new Board(5,10, ant);
 
-    Board* b = new Board(20, 40, antPtr);
-    b->initBoard();
     b->printBoard();
-//
-//    std::cout << std::to_string(antPtr->getDirection()) + "\n"
-//              << std::to_string(antPtr->getXPos()) + "\n"
-//              << std::to_string(antPtr->getYPos()) + "\n";
-//
-//    antPtr->setDirection(DOWN);
-//
-//    std::cout << std::to_string(antPtr->getDirection()) + "\n"
-//              << std::to_string(antPtr->getXPos()) + "\n"
-//              << std::to_string(antPtr->getYPos()) + "\n";
-//
-//
-//    b->delBoard();
 
-    delete antPtr;
-    antPtr = nullptr;
+    AntGame* ag = new AntGame(b, ant, 0);
+
+    ag->play();
+
+    delete ag;
+    ag = nullptr;
 
     delete b;
-    b = nullptr;
-
-//    Menu m;
-//    m.setup();
-
-
-
-
+    b= nullptr;
+    delete ant;
+    ant = nullptr;
 
     return 0;
 }

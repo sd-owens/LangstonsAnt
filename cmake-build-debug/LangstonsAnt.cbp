@@ -88,6 +88,12 @@
 		<Unit filename="/Users/Steve/Projects/School/LangstonsAnt/Ant.hpp">
 			<Option target="LangstonsAnt"/>
 		</Unit>
+		<Unit filename="/Users/Steve/Projects/School/LangstonsAnt/AntGame.cpp">
+			<Option target="LangstonsAnt"/>
+		</Unit>
+		<Unit filename="/Users/Steve/Projects/School/LangstonsAnt/AntGame.hpp">
+			<Option target="LangstonsAnt"/>
+		</Unit>
 		<Unit filename="/Users/Steve/Projects/School/LangstonsAnt/Board.cpp">
 			<Option target="LangstonsAnt"/>
 		</Unit>

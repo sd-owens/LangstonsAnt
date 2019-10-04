@@ -4,6 +4,11 @@
 CMakeFiles/LangstonsAnt.dir/Ant.cpp.o: ../Ant.cpp
 CMakeFiles/LangstonsAnt.dir/Ant.cpp.o: ../Ant.hpp
 
+CMakeFiles/LangstonsAnt.dir/AntGame.cpp.o: ../Ant.hpp
+CMakeFiles/LangstonsAnt.dir/AntGame.cpp.o: ../AntGame.cpp
+CMakeFiles/LangstonsAnt.dir/AntGame.cpp.o: ../AntGame.hpp
+CMakeFiles/LangstonsAnt.dir/AntGame.cpp.o: ../Board.hpp
+
 CMakeFiles/LangstonsAnt.dir/Board.cpp.o: ../Ant.hpp
 CMakeFiles/LangstonsAnt.dir/Board.cpp.o: ../Board.cpp
 CMakeFiles/LangstonsAnt.dir/Board.cpp.o: ../Board.hpp
@@ -14,6 +19,7 @@ CMakeFiles/LangstonsAnt.dir/Menu.cpp.o: ../Menu.hpp
 CMakeFiles/LangstonsAnt.dir/Menu.cpp.o: ../validInput.hpp
 
 CMakeFiles/LangstonsAnt.dir/main.cpp.o: ../Ant.hpp
+CMakeFiles/LangstonsAnt.dir/main.cpp.o: ../AntGame.hpp
 CMakeFiles/LangstonsAnt.dir/main.cpp.o: ../Board.hpp
 CMakeFiles/LangstonsAnt.dir/main.cpp.o: ../Menu.hpp
 CMakeFiles/LangstonsAnt.dir/main.cpp.o: ../main.cpp
