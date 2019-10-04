@@ -2,6 +2,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/LangstonsAnt.dir/main.cpp.o"
   "CMakeFiles/LangstonsAnt.dir/Ant.cpp.o"
   "CMakeFiles/LangstonsAnt.dir/Board.cpp.o"
+  "CMakeFiles/LangstonsAnt.dir/Menu.cpp.o"
+  "CMakeFiles/LangstonsAnt.dir/validInput.cpp.o"
   "LangstonsAnt.pdb"
   "LangstonsAnt"
 )

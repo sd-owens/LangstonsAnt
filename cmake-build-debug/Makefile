@@ -177,6 +177,33 @@ Board.cpp.s:
 	$(MAKE) -f CMakeFiles/LangstonsAnt.dir/build.make CMakeFiles/LangstonsAnt.dir/Board.cpp.s
 .PHONY : Board.cpp.s
 
+Menu.o: Menu.cpp.o
+
+.PHONY : Menu.o
+
+# target to build an object file
+Menu.cpp.o:
+	$(MAKE) -f CMakeFiles/LangstonsAnt.dir/build.make CMakeFiles/LangstonsAnt.dir/Menu.cpp.o
+.PHONY : Menu.cpp.o
+
+Menu.i: Menu.cpp.i
+
+.PHONY : Menu.i
+
+# target to preprocess a source file
+Menu.cpp.i:
+	$(MAKE) -f CMakeFiles/LangstonsAnt.dir/build.make CMakeFiles/LangstonsAnt.dir/Menu.cpp.i
+.PHONY : Menu.cpp.i
+
+Menu.s: Menu.cpp.s
+
+.PHONY : Menu.s
+
+# target to generate assembly for a file
+Menu.cpp.s:
+	$(MAKE) -f CMakeFiles/LangstonsAnt.dir/build.make CMakeFiles/LangstonsAnt.dir/Menu.cpp.s
+.PHONY : Menu.cpp.s
+
 main.o: main.cpp.o
 
 .PHONY : main.o
@@ -204,6 +231,33 @@ main.cpp.s:
 	$(MAKE) -f CMakeFiles/LangstonsAnt.dir/build.make CMakeFiles/LangstonsAnt.dir/main.cpp.s
 .PHONY : main.cpp.s
 
+validInput.o: validInput.cpp.o
+
+.PHONY : validInput.o
+
+# target to build an object file
+validInput.cpp.o:
+	$(MAKE) -f CMakeFiles/LangstonsAnt.dir/build.make CMakeFiles/LangstonsAnt.dir/validInput.cpp.o
+.PHONY : validInput.cpp.o
+
+validInput.i: validInput.cpp.i
+
+.PHONY : validInput.i
+
+# target to preprocess a source file
+validInput.cpp.i:
+	$(MAKE) -f CMakeFiles/LangstonsAnt.dir/build.make CMakeFiles/LangstonsAnt.dir/validInput.cpp.i
+.PHONY : validInput.cpp.i
+
+validInput.s: validInput.cpp.s
+
+.PHONY : validInput.s
+
+# target to generate assembly for a file
+validInput.cpp.s:
+	$(MAKE) -f CMakeFiles/LangstonsAnt.dir/build.make CMakeFiles/LangstonsAnt.dir/validInput.cpp.s
+.PHONY : validInput.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -219,9 +273,15 @@ help:
 	@echo "... Board.o"
 	@echo "... Board.i"
 	@echo "... Board.s"
+	@echo "... Menu.o"
+	@echo "... Menu.i"
+	@echo "... Menu.s"
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"
+	@echo "... validInput.o"
+	@echo "... validInput.i"
+	@echo "... validInput.s"
 .PHONY : help
 
 

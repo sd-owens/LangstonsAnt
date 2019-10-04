@@ -7,6 +7,10 @@
 
 
 class Board {
+private:
+
+public:
+    void printBoard();
 
 };
 

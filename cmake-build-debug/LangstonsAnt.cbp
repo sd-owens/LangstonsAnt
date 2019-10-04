@@ -94,7 +94,19 @@
 		<Unit filename="/Users/Steve/Projects/School/LangstonsAnt/Board.hpp">
 			<Option target="LangstonsAnt"/>
 		</Unit>
+		<Unit filename="/Users/Steve/Projects/School/LangstonsAnt/Menu.cpp">
+			<Option target="LangstonsAnt"/>
+		</Unit>
+		<Unit filename="/Users/Steve/Projects/School/LangstonsAnt/Menu.hpp">
+			<Option target="LangstonsAnt"/>
+		</Unit>
 		<Unit filename="/Users/Steve/Projects/School/LangstonsAnt/main.cpp">
+			<Option target="LangstonsAnt"/>
+		</Unit>
+		<Unit filename="/Users/Steve/Projects/School/LangstonsAnt/validInput.cpp">
+			<Option target="LangstonsAnt"/>
+		</Unit>
+		<Unit filename="/Users/Steve/Projects/School/LangstonsAnt/validInput.hpp">
 			<Option target="LangstonsAnt"/>
 		</Unit>
 		<Unit filename="/Users/Steve/Projects/School/LangstonsAnt/CMakeLists.txt">
