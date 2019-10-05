@@ -16,20 +16,16 @@
 using namespace std::this_thread; // sleep_for, sleep_until
 using namespace std::chrono; // nanoseconds, system_clock, seconds
 
-AntGame::AntGame(Board* board, Ant* ant, int steps)
+AntGame::AntGame(Board* &board, Ant* &ant, int steps)
     : board(board), ant(ant), steps(steps){
 
 }
 
-bool AntGame::isWall() {
-
-    if(ant->getDirection() == LEFT && ant->getXPos() == 0) { return true;}
-    else if(ant->getDirection() == UP && ant->getYPos() == 0) {return true;}
-    else if(ant->getDirection() == RIGHT && ant->getXPos() == board->getColumns() - 1) {return true;}
-    else if(ant->getDirection() == DOWN && ant->getYPos() == board->getRows() - 1) {return true;}
-    else {
-        return false;
-    }
+AntGame::~AntGame(){
+    delete board;
+    board = nullptr;
+    delete ant;
+    ant = nullptr;
 }
 
 void AntGame::turnAnt() {
@@ -60,19 +56,15 @@ void AntGame::turnAnt() {
         switch (d) { // turn right
             case UP:
                 ant->setDirection(RIGHT);
-                std::cout << "test\n";
                 break;
             case LEFT:
                 ant->setDirection(UP);
-                std::cout << "test\n";
                 break;
             case DOWN:
                 ant->setDirection(LEFT);
-                std::cout << "test\n";
                 break;
             case RIGHT:
                 ant->setDirection(DOWN);
-                std::cout << "test\n";
                 break;
         }
         board->setColor(row, col, '#');
@@ -82,50 +74,71 @@ void AntGame::turnAnt() {
 
 void AntGame::redirect() {
 
-    srand(time(nullptr));
+    Direction d = ant->getDirection();
+//    srand(time(nullptr));
+//
+//    int randDir = (rand() % 4);  // results in a random value between 0 and 3
+//
+//    ant->setDirection(static_cast<Direction >(randDir));
+    switch (d) {  // turn left
+        case UP:
+            ant->setDirection(DOWN);
+            break;
+        case LEFT:
+            ant->setDirection(RIGHT);
+            break;
+        case DOWN:
+            ant->setDirection(UP);
+            break;
+        case RIGHT:
+            ant->setDirection(LEFT);
+            break;
+    }
+}
 
-    int randDir = (rand() % 4);  // results in a random value between 0 and 3
+bool AntGame::isWithinBounds(int row, int column) {
 
-    ant->setDirection(static_cast<Direction >(randDir));
-    std::cout << ant->getDirection() << std::endl;
-
+    return ((column >= 0 && column <= board->getColumns()) && (row >= 0 && row <= board->getRows()));
 }
 
 bool AntGame::move() {
 
-    if(ant->getDirection() == UP && !isWall()) {
+    int yPos = ant->getYPos();
+    int xPos = ant->getXPos();
 
-        ant->setYPos(ant->getYPos() - 1);
-        turnAnt();
-        std::cout << "here UP\n";
-        this->steps--;
-        return true;
-
-
-    } else if (ant->getDirection() == RIGHT && !isWall()) {
-
-        ant->setXPos(ant->getXPos() + 1);
-        turnAnt();
-        std::cout << "here RIGHT\n";
-        this->steps--;
-        return true;
-
-    } else if (ant->getDirection() == DOWN && !isWall()) {
-
-        ant->setYPos(ant->getYPos() + 1);
-        turnAnt();
-        std::cout << "here DOWN\n";
-        this->steps--;
-        return true;
-
-    } else if (ant->getDirection() == LEFT && !isWall()) {
-
-            turnAnt();
-            std::cout << "here LEFT\n";
-            this->steps--;
-            return true;
+    switch (ant->getDirection()) {
+        case UP:
+            if (isWithinBounds(yPos - 1, xPos)) {
+                ant->setYPos(yPos - 1);
+            } else {
+                return false;
+            }
+            break;
+        case RIGHT:
+            if (isWithinBounds(yPos, xPos + 1)) {
+                ant->setXPos(xPos + 1);
+            } else {
+                return false;
+            }
+            break;
+        case DOWN:
+            if (isWithinBounds(yPos + 1, xPos)) {
+                ant->setYPos(yPos + 1);
+            } else {
+                return false;
+            }
+            break;
+        case LEFT:
+            if (isWithinBounds(yPos, xPos - 1)) {
+                ant->setXPos(xPos - 1);
+            } else {
+                return false;
+            }
+            break;
     }
-
+    turnAnt();
+    steps--;
+    return true;
 }
 
 void AntGame::play(){

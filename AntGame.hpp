@@ -14,8 +14,9 @@ private:
     Ant* ant;
     int steps;
 public:
-    AntGame(Board* board, Ant* ant, int steps);
-    bool isWall();
+    AntGame(Board* &board, Ant* &ant, int steps);
+    ~AntGame();
+    bool isWithinBounds(int row, int column);
     void turnAnt();
     void redirect();
     bool move();

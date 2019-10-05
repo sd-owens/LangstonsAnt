@@ -15,7 +15,7 @@ private:
     Ant* ant;
     char** gameBoard;
 public:
-    Board(int row, int col, Ant*);
+    Board(int row, int col, Ant* &ant);
     ~Board();
     char getColor(int row, int column);
     void setColor(int row, int column, char symbol);

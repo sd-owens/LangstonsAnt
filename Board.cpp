@@ -4,7 +4,7 @@
 #include <iostream>
 #include "Board.hpp"
 
-Board::Board(int row, int col, Ant* ant)
+Board::Board(int row, int col, Ant* &ant)
     : rows(row), columns(col), ant(ant){
 
     gameBoard = new char* [this->rows];
@@ -16,6 +16,8 @@ Board::Board(int row, int col, Ant* ant)
 
 Board::~Board() {
     delBoard();
+    delete ant;
+    ant = nullptr;
     std::cout << "Destructor called";
 }
 

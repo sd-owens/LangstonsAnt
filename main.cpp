@@ -12,23 +12,22 @@
 
 int main(){
 
-    Ant* ant = new Ant(10,5);
+    Ant* ant = new Ant(6,2);
 
-    Board* b = new Board(10,20, ant);
+    auto* b = new Board(16,64, ant);
 
     b->printBoard();
 
-    AntGame* ag = new AntGame(b, ant, 40);
+    auto* ag = new AntGame(b, ant, 50);
 
     ag->play();
 
     delete ag;
-    ag = nullptr;
-
-    delete b;
-    b= nullptr;
     delete ant;
-    ant = nullptr;
+    delete b;
+    ag = nullptr;
+//    b = nullptr;
+//    ant = nullptr;
 
 
 
