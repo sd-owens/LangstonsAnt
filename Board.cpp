@@ -47,8 +47,8 @@ void Board::initBoard() {
 void Board::printBoard() {
 
     std::cout << "\n";
-    for(int i = 0; i <= this->columns; i++) {
-        std::cout << "--";
+    for(int i = 0; i <= this->columns + 1; i++) {
+        std::cout << "-";
     }
 
     std::cout << "\n";
@@ -59,16 +59,16 @@ void Board::printBoard() {
         for(int x = 0; x < this->columns; x++){
 
             if(ant->getXPos() == x && ant->getYPos() == y) {
-                std::cout << "* ";
+                std::cout << "*";
             } else {
                 std::cout << static_cast<char>(gameBoard[y][x]);
-                std::cout << ' ';
+//                std::cout << ' ';
             }
         }
         std::cout << "|\n";
     }
-    for(int i = 0; i <= this->columns; i++) {
-        std::cout << "--";
+    for(int i = 0; i <= this->columns + 1; i++) {
+        std::cout << "-";
     }
     std::cout << std::endl;
 }

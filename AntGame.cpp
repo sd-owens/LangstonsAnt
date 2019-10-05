@@ -134,11 +134,14 @@ bool AntGame::move() {
     return true;
 }
 
+/* Implemented time delay functionality between ant move commands to allow user to view
+   console output.  Adapted from post by user "barnes53" on 20120317 from
+   https://stackoverflow.com/questions/158585/how-do-you-add-a-timed-delay-to-a-c-program */
 void AntGame::play(){
 
     while(steps != 0){
 //        sleep_for(nanoseconds(10));
-        sleep_until(system_clock::now() + milliseconds(100));
+//        sleep_until(system_clock::now() + milliseconds(100));
         board->printBoard();
         if(!move()) {
             redirect();

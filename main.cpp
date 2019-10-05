@@ -12,13 +12,13 @@
 
 int main(){
 
-    Ant* ant = new Ant(24,8);
+    Ant* ant = new Ant(100,50);
 
-    auto* b = new Board(64,64, ant);
+    auto* b = new Board(100,200, ant);
 
     b->printBoard();
 
-    auto* ag = new AntGame(b, ant, 50);
+    auto* ag = new AntGame(b, ant, 12000);
 
     ag->play();
 
