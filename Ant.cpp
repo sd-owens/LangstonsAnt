@@ -6,8 +6,8 @@
 #include <ctime>
 #include "Ant.hpp"
 
-Ant::Ant(int x, int y)
-    : xPos(x), yPos(y){
+Ant::Ant(int row, int col)
+    : xPos(col), yPos(row){
 
     srand(time(nullptr));
 

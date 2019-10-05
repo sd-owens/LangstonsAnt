@@ -13,7 +13,7 @@ private:
     int yPos;
     Direction direction;
 public:
-    Ant(int x, int y);
+    Ant(int row, int col);
 
     int getXPos() const;
 

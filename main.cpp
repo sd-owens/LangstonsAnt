@@ -12,7 +12,7 @@
 
 int main(){
 
-    Ant* ant = new Ant(100,50);
+    Ant* ant = new Ant(50,100);
 
     auto* b = new Board(100,200, ant);
 
