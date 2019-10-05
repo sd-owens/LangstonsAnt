@@ -18,16 +18,13 @@ int main(){
 
     b->printBoard();
 
-    auto* ag = new AntGame(b, ant, 500);
+    auto* ag = new AntGame(b, ant, 50);
 
     ag->play();
 
     delete ag;
     delete ant;
     delete b;
-    ag = nullptr;
-//    b = nullptr;
-//    ant = nullptr;
 
 
 

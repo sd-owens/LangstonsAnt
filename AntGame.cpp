@@ -21,13 +21,6 @@ AntGame::AntGame(Board* board, Ant* ant, int steps)
 
 }
 
-AntGame::~AntGame(){
-    delete board;
-    board = nullptr;
-    delete ant;
-    ant = nullptr;
-}
-
 void AntGame::turnAnt() {
 
     int col = ant->getXPos();

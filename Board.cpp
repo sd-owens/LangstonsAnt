@@ -16,8 +16,6 @@ Board::Board(int row, int col, Ant* ant)
 
 Board::~Board() {
     delBoard();
-    delete ant;
-    ant = nullptr;
     std::cout << "Destructor called";
 }
 
