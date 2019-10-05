@@ -18,7 +18,7 @@ public:
     int getSteps() const;
     bool isWall();
     void turnAnt();
-    int redirect();
+    void redirect();
     bool move();
     void play();
 };

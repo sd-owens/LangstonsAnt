@@ -2,6 +2,7 @@
 // Created by Steve Owens on 10/4/19.
 //
 
+#include <iostream>
 #include <ctime>
 #include <cstdlib>
 #include <chrono>
@@ -74,7 +75,7 @@ void AntGame::turnAnt() {
     }
 }
 
-int AntGame::redirect() {
+void AntGame::redirect() {
 
     srand(time(nullptr));
 
@@ -82,7 +83,6 @@ int AntGame::redirect() {
 
     ant->setDirection(static_cast<Direction >(randDir));
 
-    return 0;
 }
 
 bool AntGame::move() {
