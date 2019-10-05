@@ -16,7 +16,7 @@
 using namespace std::this_thread; // sleep_for, sleep_until
 using namespace std::chrono; // nanoseconds, system_clock, seconds
 
-AntGame::AntGame(Board* &board, Ant* &ant, int steps)
+AntGame::AntGame(Board* board, Ant* ant, int steps)
     : board(board), ant(ant), steps(steps){
 
 }
