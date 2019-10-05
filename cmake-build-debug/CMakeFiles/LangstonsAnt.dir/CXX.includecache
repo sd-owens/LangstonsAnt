@@ -6,37 +6,9 @@
 
 #IncludeRegexTransform: 
 
-/Users/Steve/Projects/School/LangstonsAnt/Ant.cpp
-cstdlib
--
-ctime
--
-Ant.hpp
 /Users/Steve/Projects/School/LangstonsAnt/Ant.hpp
 
-/Users/Steve/Projects/School/LangstonsAnt/Ant.hpp
-
-/Users/Steve/Projects/School/LangstonsAnt/AntGame.cpp
-iostream
--
-ctime
--
-cstdlib
--
-chrono
--
-thread
--
-AntGame.hpp
 /Users/Steve/Projects/School/LangstonsAnt/AntGame.hpp
-
-/Users/Steve/Projects/School/LangstonsAnt/AntGame.hpp
-Board.hpp
-/Users/Steve/Projects/School/LangstonsAnt/Board.hpp
-
-/Users/Steve/Projects/School/LangstonsAnt/Board.cpp
-iostream
--
 Board.hpp
 /Users/Steve/Projects/School/LangstonsAnt/Board.hpp
 
@@ -53,13 +25,11 @@ validInput.hpp
 /Users/Steve/Projects/School/LangstonsAnt/validInput.hpp
 Ant.hpp
 /Users/Steve/Projects/School/LangstonsAnt/Ant.hpp
+Board.hpp
+/Users/Steve/Projects/School/LangstonsAnt/Board.hpp
+AntGame.hpp
+/Users/Steve/Projects/School/LangstonsAnt/AntGame.hpp
 
-/Users/Steve/Projects/School/LangstonsAnt/Menu.hpp
-
-/Users/Steve/Projects/School/LangstonsAnt/main.cpp
-iostream
--
-Menu.hpp
 /Users/Steve/Projects/School/LangstonsAnt/Menu.hpp
 Ant.hpp
 /Users/Steve/Projects/School/LangstonsAnt/Ant.hpp

@@ -12,21 +12,8 @@
 
 int main(){
 
-    Ant* ant = new Ant(50,100);
-
-    auto* b = new Board(100,200, ant);
-
-    b->printBoard();
-
-    auto* ag = new AntGame(b, ant, 12000);
-
-    ag->play();
-
-    delete ag;
-    delete ant;
-    delete b;
-
-
+     Menu menu;
+     menu.setup();
 
     return 0;
 }

@@ -5,67 +5,96 @@
 #include "Menu.hpp"
 #include "validInput.hpp"
 #include "Ant.hpp"
+#include "Board.hpp"
+#include "AntGame.hpp"
+
+Menu::~Menu(){
+    delete antGame;
+    delete board;
+    delete ant;
+}
 
 void Menu::setup() {
 
     std::string inputMenu1, inputMenu2 {};
-    int choice, rows, cols, steps, startRow, startColumn {};
+    int choice {};
 
-    std::cout << "\n***************************************************\n";
-    std::cout << "****************** Langston's Ant! ****************\n";
-    std::cout << "***************************************************\n\n";
-    //TODO make this relevant about Langstons Ant
-    std::cout << "This program calculates the determinant of a user\n"
-                 "defined matrix of either size 2 x 2 or 3 x 3.\n\n";
+    // [0]rows, [1]cols, [2]steps, [3]startRow, [4]startColumn
+    int data[5];
+    int data_size {5};
+    int count{0};
 
-    std::cout << "Choose an option:\n";
-    std::cout << "1. Start Langston's Ant Simulation\n2. Quit\n";
+    std::string title {
+            "\n***************************************************\n"
+            "****************** Langston's Ant! ****************\n"
+            "***************************************************\n\n"
+            "Langton's ant is a two-dimensional universal Turing\n"
+            "machine with a very simple set of rules but complex\n"
+            "emergent behavior. It was invented by Chris Langton\n"
+            "in 1986 and runs on a square lattice of black and\n"
+            "white cells.\n"
+    };
+
+    std::string mainMenu {
+            "\nChoose an option:\n"
+            "1. Start Langston's Ant Simulation\n2. Quit\n"
+    };
+    std::string subMenu1 {
+            "\nSome information is required before we begin the simulation:\n"
+            "[Please use positive integer values only!]\n"
+    };
+
+    std::string inputPrompts[] = {
+            "\nEnter number of rows for board:\n",
+            "\nEnter number of columns for board:\n",
+            "\nEnter numbers of steps for simulation:\n",
+            "\nEnter the starting row for the ant:\n",
+            "\nEnter the starting column for the ant:\n"
+    };
+
+    int inputPrompts_size {5};
 
     do {
+
+        if(count == 0){
+            std::cout << title;
+            std::cout << mainMenu;
+        }
+
 
         getline(std::cin, inputMenu1);
         choice = validateInput(inputMenu1);
 
-        //TODO add input validiation
         if(choice == 2) {
-
             break;
 
         } else if(choice == 1) {
 
-            std::cout << "\nSome information is required before we begin the simulation:\n";
-            std::cout << "[Please use positive integer values only!]\n";
-            
-            std::cout << "\nEnter number of rows for board:\n";
-            getline(std::cin, inputMenu2);
-            rows = validateInput(inputMenu2);
-            
-            std::cout << "\nEnter number of columns for board:\n";
-            getline(std::cin, inputMenu2);
-            cols = validateInput(inputMenu2);
-            
-            std::cout << "\nEnter numbers of steps for simulation:\n";
-            getline(std::cin, inputMenu2);
-            steps = validateInput(inputMenu2);
-            
-            std::cout << "\nEnter the starting row for the ant:\n";
-            getline(std::cin, inputMenu2);
-            startRow = validateInput(inputMenu2);
-            
-            std::cout << "\nEnter the starting column for the ant:\n";
-            getline(std::cin, inputMenu2);
-            startColumn = validateInput(inputMenu2);
-            
-            std::cout << rows << "\n" << cols << "\n"<< steps << "\n" << startRow << "\n" << startColumn;
-
-            std::cout << "Let's begin the simulation!\n";
-
-            break;
+            for (int i = 0; i < inputPrompts_size; i++){
+                std::cout << inputPrompts[i];
+                getline(std::cin, inputMenu2);
+                data[i] = validateInput(inputMenu2);
+            }
         }
-
+        count++;
+        std::cout << "Let's begin the simulation!\n";
+        start(data, data_size);
+        std::cout << "\nSimulation Complete!\n\nPlay Again?\n";
+        std::cout << mainMenu;
     } while (true);
+}
 
-//    Ant* ant = new Ant(startRow, startColumn, UP)
+void Menu::start(int* data, int data_size) {
 
+    for(int i = 0; i < data_size; i++) {
+        std::cout << data[i] << std::endl;
+    }
+
+    ant = new Ant(data[3],data[4]);
+    board = new Board(data[0], data[1], ant);
+
+    antGame = new AntGame(board, ant, data[2]);
+
+    antGame->play();
 
 }

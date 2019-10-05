@@ -15,23 +15,9 @@ bool isValid(std::string input) {
 
     bool validInput = true;
 
-    std::string cleanInput{};
+    for(unsigned int i = 0; i < input.length(); i++){
 
-//    if(input.at(0) == '-'){
-//
-//        cleanInput = input.erase(0,1);
-//
-//    } else {
-//
-//        cleanInput = input;
-//    }
-
-    cleanInput = input;
-
-    for(unsigned int i = 0; i < cleanInput.length(); i++){
-
-        if(!std::isdigit(cleanInput.at(i)) && validInput){
-
+        if(!std::isdigit(input.at(i))){
             validInput = false;
             break;
         }
