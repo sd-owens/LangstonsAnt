@@ -14,11 +14,11 @@ int main(){
 
     Ant* ant = new Ant(2,2);
 
-    Board* b = new Board(5,10, ant);
+    Board* b = new Board(10,20, ant);
 
     b->printBoard();
 
-    AntGame* ag = new AntGame(b, ant, 10);
+    AntGame* ag = new AntGame(b, ant, 30);
 
     ag->play();
 

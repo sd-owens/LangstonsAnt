@@ -4,9 +4,16 @@
 
 #include <ctime>
 #include <cstdlib>
+#include <chrono>
+#include <thread>
 #include "AntGame.hpp"
 
+/* Implemented time delay functionality between ant move commands to allow user to view
+   console output.  Adapted from post by user "barnes53" on 20120317 from
+   https://stackoverflow.com/questions/158585/how-do-you-add-a-timed-delay-to-a-c-program */
 
+using namespace std::this_thread; // sleep_for, sleep_until
+using namespace std::chrono; // nanoseconds, system_clock, seconds
 
 AntGame::AntGame(Board* board, Ant* ant, int steps)
     : board(board), ant(ant), steps(steps){
@@ -107,6 +114,8 @@ bool AntGame::move() {
 void AntGame::play(){
 
     while(steps != 0){
+//        sleep_for(nanoseconds(10));
+        sleep_until(system_clock::now() + milliseconds(500));
         board->printBoard();
         if(!move()) {
             redirect();
