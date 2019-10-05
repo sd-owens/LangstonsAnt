@@ -12,13 +12,13 @@
 
 int main(){
 
-    Ant* ant = new Ant(2,2);
+    Ant* ant = new Ant(10,5);
 
     Board* b = new Board(10,20, ant);
 
     b->printBoard();
 
-    AntGame* ag = new AntGame(b, ant, 30);
+    AntGame* ag = new AntGame(b, ant, 40);
 
     ag->play();
 
@@ -29,6 +29,8 @@ int main(){
     b= nullptr;
     delete ant;
     ant = nullptr;
+
+
 
     return 0;
 }

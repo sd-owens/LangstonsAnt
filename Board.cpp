@@ -19,12 +19,12 @@ Board::~Board() {
     std::cout << "Destructor called";
 }
 
-char Board::getColor(int column, int row){
-    return gameBoard[column][row];
+char Board::getColor(int row, int column){
+    return gameBoard[row][column];
 }
-
-void Board::setColor(int column, int row, char symbol){
-    gameBoard[column][row] = symbol;
+//TODO possible cause of error
+void Board::setColor(int row, int column, char symbol){
+    gameBoard[row][column] = static_cast<char> (symbol);
 }
 
 int Board::getRows(){

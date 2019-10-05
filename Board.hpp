@@ -17,8 +17,8 @@ private:
 public:
     Board(int row, int col, Ant*);
     ~Board();
-    char getColor(int column, int row);
-    void setColor(int column, int row, char symbol);
+    char getColor(int row, int column);
+    void setColor(int row, int column, char symbol);
     int getRows();
     int getColumns();
     void initBoard();

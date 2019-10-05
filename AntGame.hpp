@@ -15,7 +15,6 @@ private:
     int steps;
 public:
     AntGame(Board* board, Ant* ant, int steps);
-    int getSteps() const;
     bool isWall();
     void turnAnt();
     void redirect();
