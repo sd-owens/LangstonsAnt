@@ -9,12 +9,19 @@
 #include "AntGame.hpp"
 
 Menu::~Menu(){
-    delete antGame;
-    delete board;
-    delete ant;
+
+    if(!antGame){
+        delete antGame;
+    }
+    if(!board){
+        delete board;
+    }
+    if(!ant){
+        delete ant;
+    }
 }
 
-void Menu::setup() {
+void Menu::run() {
 
     std::string inputMenu1, inputMenu2 {};
     int choice {};
@@ -51,24 +58,34 @@ void Menu::setup() {
             "\nEnter the starting row for the ant:\n",
             "\nEnter the starting column for the ant:\n"
     };
+    std::string startPrompt = {
+            "\nReady to begin the simulation?\n"
+            "1. Start\n2. Quit\n3. Change inputs\n"
+    };
+
+    std::string replayPrompt = {
+            "\nSimulation Complete!\n"
+            "\nPlay Again?\n"
+            "1. Play again\n2. Quit\n"
+    };
 
     int inputPrompts_size {5};
 
-    do {
 
-        if(count == 0){
+
+    do {
+        if(count == 0) {
             std::cout << title;
             std::cout << mainMenu;
+
+            getline(std::cin, inputMenu1);
+            choice = validateInput(inputMenu1);
         }
-
-
-        getline(std::cin, inputMenu1);
-        choice = validateInput(inputMenu1);
 
         if(choice == 2) {
             break;
 
-        } else if(choice == 1) {
+        } else if(choice == 1 || choice == 3) {
 
             for (int i = 0; i < inputPrompts_size; i++){
                 std::cout << inputPrompts[i];
@@ -77,11 +94,19 @@ void Menu::setup() {
             }
         }
         count++;
-        std::cout << "Let's begin the simulation!\n";
-        start(data, data_size);
-        std::cout << "\nSimulation Complete!\n\nPlay Again?\n";
-        std::cout << mainMenu;
-    } while (true);
+        std::cout << startPrompt;
+
+        getline(std::cin, inputMenu1);
+        choice = validateInput(inputMenu1);
+
+        if(choice == 1) {
+            start(data, data_size);
+            std::cout << replayPrompt;
+            getline(std::cin, inputMenu1);
+            choice = validateInput(inputMenu1);
+        }
+
+    } while (choice != 2);
 }
 
 void Menu::start(int* data, int data_size) {

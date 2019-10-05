@@ -13,7 +13,7 @@
 int main(){
 
      Menu menu;
-     menu.setup();
+     menu.run();
 
     return 0;
 }

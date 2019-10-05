@@ -17,7 +17,7 @@ private:
     AntGame* antGame;
 public:
     ~Menu();
-    void setup();
+    void run();
     void start(int* data, int data_size);
 };
 
