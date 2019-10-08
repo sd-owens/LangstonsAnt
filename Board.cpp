@@ -46,7 +46,6 @@ void Board::initBoard() {
 
 void Board::printBoard() {
 
-    std::cout << "\n";
     for(int i = 0; i <= this->columns + 1; i++) {
         std::cout << "-";
     }

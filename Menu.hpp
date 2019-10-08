@@ -5,20 +5,18 @@
 #ifndef MENU_HPP
 #define MENU_HPP
 
-
-#include "Ant.hpp"
-#include "Board.hpp"
-#include "AntGame.hpp"
-
 class Menu {
 private:
-    Ant* ant;
-    Board* board;
-    AntGame* antGame;
+    std::string title;
+    std::string mainMenu;
+    std::string subMenu1;
+    std::vector<std::string> inputPrompts;
+    std::string startPrompt;
+    std::string replayPrompt;
 public:
-    ~Menu();
-    void run();
-    void start(int* data, int data_size);
+    Menu(std::string &title, std::string &mainMenu, std::string &subMenu1, std::vector<std::string> &inputPrompts, std::string &startPrompt, std::string &relayPrompt);
+    std::vector<int> display();
+    void replay();
 };
 
 

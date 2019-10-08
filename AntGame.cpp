@@ -3,11 +3,14 @@
 //
 
 #include <iostream>
+#include <string>
+#include <vector>
 #include <ctime>
 #include <cstdlib>
 #include <chrono>
 #include <thread>
 #include "AntGame.hpp"
+#include "Menu.hpp"
 
 /* Implemented time delay functionality between ant move commands to allow user to view
    console output.  Adapted from post by user "barnes53" on 20120317 from
@@ -16,9 +19,45 @@
 using namespace std::this_thread; // sleep_for, sleep_until
 using namespace std::chrono; // nanoseconds, system_clock, seconds
 
-AntGame::AntGame(Board* board, Ant* ant, int steps)
-    : board(board), ant(ant), steps(steps){
+AntGame::AntGame(){
+    this->board = nullptr;
+    this->ant = nullptr;
+    this->menu = nullptr;
+    this->steps = 0;
 
+    this->title = "\n***************************************************\n"
+                  "****************** Langston's Ant! ****************\n"
+                  "***************************************************\n\n"
+                  "Langston's ant is a two-dimensional universal Turing\n"
+                  "machine with a very simple set of rules but complex\n"
+                  "emergent behavior. It was invented by Chris Langston\n"
+                  "in 1986 and runs on a square lattice of black and\n"
+                  "white cells.\n";
+
+    this->mainMenu = "\nChoose an option:\n"
+                     "1. Start Langston's Ant Simulation\n2. Quit\n";
+
+    this->subMenu1 = "\nSome information is required before we begin the simulation:\n"
+                     "[Please use positive integer values only!]\n";
+
+    this->inputPrompts = {"\nEnter number of rows for board:\n",
+                     "\nEnter number of columns for board:\n",
+                     "\nEnter numbers of steps for simulation:\n",
+                     "\nEnter the starting row for the ant:\n",
+                     "\nEnter the starting column for the ant:\n"};
+
+    this->startPrompt = "\nReady to begin the simulation?\n"
+                        "1. Start\n2. Quit\n3. Change inputs\n";
+
+    this->replayPrompt = "\nSimulation Complete!\n"
+                         "\nPlay Again?\n"
+                         "1. Play again\n2. Quit\n";
+
+}
+AntGame::~AntGame() {
+    delete menu;
+    delete board;
+    delete ant;
 }
 
 void AntGame::turnAnt() {
@@ -131,6 +170,7 @@ bool AntGame::move() {
     }
     turnAnt();
     steps--;
+    turnNumber++;
     return true;
 }
 
@@ -139,9 +179,29 @@ bool AntGame::move() {
    https://stackoverflow.com/questions/158585/how-do-you-add-a-timed-delay-to-a-c-program */
 void AntGame::play(){
 
-    while(steps != 0){
+    std::vector<int> gameData;
+
+    menu = new Menu(title,mainMenu,subMenu1,inputPrompts, startPrompt, replayPrompt);
+    gameData = menu->display();
+
+    if (!gameData.empty()) {
+        ant = new Ant(gameData.at(3), gameData.at(4));
+        board = new Board(gameData.at(0), gameData.at(1), ant);
+        this->steps = gameData.at(2);
+        this->turnNumber = this->steps - (this->steps - 1);
+        run();
+        menu->replay();
+    }
+    std::cout << "GoodBye!" << std::endl;
+}
+
+void AntGame::run() {
+
+    while(this->steps != 0){
+
 //        sleep_for(nanoseconds(10));
 //        sleep_until(system_clock::now() + milliseconds(100));
+        std::cout << "Step " << std::to_string(this->turnNumber) << "\n";
         board->printBoard();
         if(!move()) {
             redirect();
