@@ -181,21 +181,24 @@ bool AntGame::move() {
    https://stackoverflow.com/questions/158585/how-do-you-add-a-timed-delay-to-a-c-program */
 void AntGame::play(){
     int userChoice{0};
+    int abortStatus;
 
     do{
-        setup(userChoice);
+        abortStatus = setup(userChoice);
+
+        if(abortStatus == -1){
+            break;
+        }
         userChoice = menu->replay();
         if (userChoice == 1) {
-            delete menu;
-            delete board;
-            delete ant;
+            freeMem();    // free 1st simulation memory and allow new objects to be created.
         }
     } while (userChoice != 2);
 
     std::cout << "GoodBye!" << std::endl;
 }
 
-void AntGame::setup(int option) {
+int AntGame::setup(int option) {
     std::vector<int> gameData;
 
     menu = new Menu(title,mainMenu,subMenu1,inputPrompts, startPrompt, replayPrompt);
@@ -208,6 +211,10 @@ void AntGame::setup(int option) {
         this->steps = gameData.at(2);
         this->turnNumber = this->steps - (this->steps - 1);
         run();
+        return 0;
+    } else {
+        freeMem();
+        return -1;
     }
 }
 
@@ -223,4 +230,10 @@ void AntGame::run() {
             redirect();
         }
     }
+}
+
+void AntGame::freeMem(){
+    delete menu;
+    delete board;
+    delete ant;
 }

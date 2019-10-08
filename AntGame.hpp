@@ -32,8 +32,9 @@ public:
     void redirect();
     bool move();
     void play();
-    void setup(int option = 0);
+    int setup(int option = 0);
     void run();
+    void freeMem();
 };
 
 
