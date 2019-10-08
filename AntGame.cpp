@@ -24,7 +24,7 @@ AntGame::AntGame(){
     this->ant = nullptr;
     this->menu = nullptr;
     this->steps = 0;
-
+    this->turnNumber = 0;
     this->title = "\n***************************************************\n"
                   "****************** Langston's Ant! ****************\n"
                   "***************************************************\n\n"
@@ -37,14 +37,13 @@ AntGame::AntGame(){
     this->mainMenu = "\nChoose an option:\n"
                      "1. Start Langston's Ant Simulation\n2. Quit\n";
 
-    this->subMenu1 = "\nSome information is required before we begin the simulation:\n"
-                     "[Please use positive integer values only!]\n";
+    this->subMenu1 = "\nSome information is required before we begin the simulation:\n";
 
-    this->inputPrompts = {"\nEnter number of rows for board:\n",
-                     "\nEnter number of columns for board:\n",
-                     "\nEnter numbers of steps for simulation:\n",
-                     "\nEnter the starting row for the ant:\n",
-                     "\nEnter the starting column for the ant:\n"};
+    this->inputPrompts = {"\nEnter number of rows for board (positive integers only):\n",
+                     "\nEnter number of columns for board (positive integers only):\n",
+                     "\nEnter numbers of steps for simulation (positive integers only):\n",
+                     "\nEnter the starting row for the ant (first row is '1'):\n",
+                     "\nEnter the starting column for the ant (first column is '1'):\n"};
 
     this->startPrompt = "\nReady to begin the simulation?\n"
                         "1. Start\n2. Quit\n3. Change inputs\n";
@@ -52,6 +51,9 @@ AntGame::AntGame(){
     this->replayPrompt = "\nSimulation Complete!\n"
                          "\nPlay Again?\n"
                          "1. Play again\n2. Quit\n";
+
+//    std::unordered_map<std::string, std::string> game;
+//    game.
 
 }
 AntGame::~AntGame() {
@@ -130,13 +132,13 @@ void AntGame::redirect() {
 
 bool AntGame::isWithinBounds(int row, int column) {
 
-    return ((column >= 0 && column <= board->getColumns()) && (row >= 0 && row <= board->getRows()));
+    return ((column >= 0 && column < board->getColumns()) && (row >= 0 && row < board->getRows()));
 }
 
 bool AntGame::move() {
 
-    int yPos = ant->getYPos();
-    int xPos = ant->getXPos();
+    int yPos = ant->getYPos();  //row
+    int xPos = ant->getXPos();  //column
 
     switch (ant->getDirection()) {
         case UP:
@@ -170,7 +172,7 @@ bool AntGame::move() {
     }
     turnAnt();
     steps--;
-    turnNumber++;
+    ++turnNumber;
     return true;
 }
 
@@ -185,7 +187,8 @@ void AntGame::play(){
     gameData = menu->display();
 
     if (!gameData.empty()) {
-        ant = new Ant(gameData.at(3), gameData.at(4));
+        // subtracts one from user input for zero based arrays
+        ant = new Ant(gameData.at(3) , gameData.at(4)) ;
         board = new Board(gameData.at(0), gameData.at(1), ant);
         this->steps = gameData.at(2);
         this->turnNumber = this->steps - (this->steps - 1);

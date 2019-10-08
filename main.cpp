@@ -11,5 +11,8 @@ int main(){
      auto* ag = new AntGame();
      ag->play();
 
+     delete ag;
+     ag = nullptr;
+
     return 0;
 }
