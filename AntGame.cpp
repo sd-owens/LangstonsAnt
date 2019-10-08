@@ -45,6 +45,8 @@ AntGame::AntGame(){
                      "\nEnter the starting row for the ant (first row is '1'):\n",
                      "\nEnter the starting column for the ant (first column is '1'):\n"};
 
+
+
     this->startPrompt = "\nReady to begin the simulation?\n"
                         "1. Start\n2. Quit\n3. Change inputs\n";
 

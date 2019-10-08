@@ -1,6 +1,9 @@
-//
-// Created by Steve Owens on 10/2/19.
-//
+/******************************************************************************
+** Program name: Langston's Ant in C++
+** Author: Steven Owens
+** Date: 10/8/2019
+** Description:  Langton's ant is a two-dimensional universal Turing machine
+
 
 #ifndef BOARD_HPP
 #define BOARD_HPP
