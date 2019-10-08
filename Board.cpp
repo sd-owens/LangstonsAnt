@@ -16,7 +16,6 @@ Board::Board(int row, int col, Ant* ant)
 
 Board::~Board() {
     delBoard();
-    std::cout << "Destructor called";
 }
 
 char Board::getColor(int row, int column){

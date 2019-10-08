@@ -180,22 +180,35 @@ bool AntGame::move() {
    console output.  Adapted from post by user "barnes53" on 20120317 from
    https://stackoverflow.com/questions/158585/how-do-you-add-a-timed-delay-to-a-c-program */
 void AntGame::play(){
+    int userChoice{0};
 
+    do{
+        setup(userChoice);
+        userChoice = menu->replay();
+        if (userChoice == 1) {
+            delete menu;
+            delete board;
+            delete ant;
+        }
+    } while (userChoice != 2);
+
+    std::cout << "GoodBye!" << std::endl;
+}
+
+void AntGame::setup(int option) {
     std::vector<int> gameData;
 
     menu = new Menu(title,mainMenu,subMenu1,inputPrompts, startPrompt, replayPrompt);
-    gameData = menu->display();
+    gameData = menu->display(option);
 
     if (!gameData.empty()) {
         // subtracts one from user input for zero based arrays
-        ant = new Ant(gameData.at(3) , gameData.at(4)) ;
+        ant = new Ant(gameData.at(3) - 1 , gameData.at(4) - 1) ;
         board = new Board(gameData.at(0), gameData.at(1), ant);
         this->steps = gameData.at(2);
         this->turnNumber = this->steps - (this->steps - 1);
         run();
-        menu->replay();
     }
-    std::cout << "GoodBye!" << std::endl;
 }
 
 void AntGame::run() {

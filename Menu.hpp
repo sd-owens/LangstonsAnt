@@ -7,6 +7,7 @@
 
 class Menu {
 private:
+    static int count;
     std::string title;
     std::string mainMenu;
     std::string subMenu1;
@@ -15,8 +16,8 @@ private:
     std::string replayPrompt;
 public:
     Menu(std::string &title, std::string &mainMenu, std::string &subMenu1, std::vector<std::string> &inputPrompts, std::string &startPrompt, std::string &relayPrompt);
-    std::vector<int> display();
-    void replay();
+    std::vector<int> display(int choice = 0);
+    int replay();
 };
 
 

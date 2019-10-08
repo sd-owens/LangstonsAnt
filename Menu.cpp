@@ -6,6 +6,8 @@
 #include "Menu.hpp"
 #include "validInput.hpp"
 
+int Menu::count;
+
 Menu::Menu(std::string &title, std::string &mainMenu, std::string &subMenu1, std::vector<std::string> &inputPrompts, std::string &startPrompt, std::string &relayPrompt){
     this->title = title;
     this->mainMenu = mainMenu;
@@ -15,14 +17,13 @@ Menu::Menu(std::string &title, std::string &mainMenu, std::string &subMenu1, std
     this->replayPrompt = relayPrompt;
 }
 
-std::vector<int> Menu::display() {
+std::vector<int> Menu::display(int choice) {
 
     std::string inputMenu1, inputMenu2 {};
-    int choice {};
+    choice = choice;
 
     // [0]rows, [1]cols, [2]steps, [3]startRow, [4]startColumn
     std::vector<int> gameData;
-    int count{0};
 
     do {
         if(count == 0) {
@@ -62,7 +63,7 @@ std::vector<int> Menu::display() {
     } while (true);
 }
 
-void Menu::replay() {
+int Menu::replay() {
 
     std::string inputMenu3 {};
     int choice {};
@@ -71,9 +72,7 @@ void Menu::replay() {
     getline(std::cin, inputMenu3);
     choice = validateInput(inputMenu3);
 
-    if (choice == 1){
-        display();
-    }
+    return choice;
 }
 
 
