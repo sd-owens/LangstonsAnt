@@ -3,6 +3,7 @@
 ** Author: Steven Owens
 ** Date: 10/8/2019
 ** Description:  Langton's ant is a two-dimensional universal Turing machine
+ */
 
 
 #ifndef BOARD_HPP
