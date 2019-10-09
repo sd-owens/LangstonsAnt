@@ -51,7 +51,7 @@ bool isValid(std::string input) {
     cin.fail() and use string input for validation */
 int validateInput(std::string input){
 
-    while(!isValid(input)){
+    while(input.empty() || !isValid(input)){
 
         //clears potential error flag on cin from invalid input.
         std::cerr << "Must enter an integer!\n";
