@@ -51,7 +51,7 @@ Menu::Menu(std::string &title, std::string &mainMenu, std::string &subMenu1, std
  */
 std::vector<int> Menu::display(int choice) {
 
-    std::string inputMenu1, inputMenu2 {};
+    std::string inputMenu1, inputMenu2, inputMenu3 {};
     choice = choice;
 
     // (0)rows, (1)cols, (2)steps, (3)startRow, (4)startColumn
@@ -62,8 +62,13 @@ std::vector<int> Menu::display(int choice) {
             std::cout << title;
             std::cout << mainMenu;
 
-            getline(std::cin, inputMenu1);
-            choice = validateInput(inputMenu1);
+            while(choice != 1 && choice != 2) {
+                getline(std::cin, inputMenu1);
+                choice = validateInput(inputMenu1);
+                if(choice != 1 && choice != 2){
+                    std::cerr << "Pick 1 or 2!\n";
+                }
+            }
         }
 
         if(choice == 2) {
@@ -83,10 +88,16 @@ std::vector<int> Menu::display(int choice) {
             }
         }
         count++;
+        choice = 0;  // reset choice to 0 for next while loop check.
         std::cout << startPrompt;
 
-        getline(std::cin, inputMenu1);
-        choice = validateInput(inputMenu1);
+        while(choice != 1 && choice != 2 && choice != 3) {
+            getline(std::cin, inputMenu3);
+            choice = validateInput(inputMenu3);
+            if(choice != 1 && choice != 2){
+                std::cerr << "Pick 1, 2, or 3!\n";
+            }
+        }
 
         if(choice == 1) {
             return gameData;
@@ -101,12 +112,17 @@ std::vector<int> Menu::display(int choice) {
  */
 int Menu::replay() {
 
-    std::string inputMenu3 {};
+    std::string inputMenu4 {};
     int choice {};
 
     std::cout << replayPrompt;
-    getline(std::cin, inputMenu3);
-    choice = validateInput(inputMenu3);
+    while(choice != 1 && choice != 2) {
+        getline(std::cin, inputMenu4);
+        choice = validateInput(inputMenu4);
+        if(choice != 1 && choice != 2){
+            std::cerr << "Pick 1 or 2!\n";
+        }
+    }
 
     return choice;
 }
