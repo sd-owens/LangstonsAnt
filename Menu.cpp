@@ -94,7 +94,7 @@ std::vector<int> Menu::display(int choice) {
         while(choice != 1 && choice != 2 && choice != 3) {
             getline(std::cin, inputMenu3);
             choice = validateInput(inputMenu3);
-            if(choice != 1 && choice != 2){
+            if(choice != 1 && choice != 2 && choice != 3){
                 std::cerr << "Pick 1, 2, or 3!\n";
             }
         }
