@@ -18,11 +18,6 @@
 #include <vector>
 #include "Menu.hpp"
 #include "validInput.hpp"
-
-/* static variable to track the number of times a Menu object is created for use
- * in user replay feature. only need to know if the call is greater than once.
- */
-int Menu::count;
 /*
  * Summary: Menu constructor which takes numerous input parameters passed by reference
  *          to prevent duplicating strings in memory.  Each input param is initialized
@@ -50,7 +45,9 @@ Menu::Menu(std::string &title, std::string &mainMenu, std::string &subMenu1, std
  * Returns: std::vector<int> which are the 5 integers required for instantiation of objects in AntGame.
  */
 std::vector<int> Menu::display(int choice) {
-
+    /* static local variable to track the number of times a Menu object is created for use
+     * in user replay feature. only need to know if the call is greater than once.*/
+    int static count = 0;
     std::string inputMenu1, inputMenu2, inputMenu3 {};
     choice = choice;
 
